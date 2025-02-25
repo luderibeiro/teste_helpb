@@ -1,70 +1,97 @@
-# Getting Started with Create React App
+# Descrição do Projeto
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+O **Simulador de Orçamentos Farmacêuticos** é uma aplicação **React** desenvolvida para facilitar a criação de orçamentos na indústria farmacêutica. A ferramenta permite a seleção de clientes, adição de produtos, definição de margens de lucro e cálculo automático de preços, receitas, lucros e custos. Além disso, oferece a funcionalidade de exportar o orçamento em **PDF** ou **CSV**.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+# Funcionalidades Implementadas
 
-### `npm start`
+## Seleção de Cliente
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+-   O usuário pode selecionar um cliente a partir de um **dropdown**.
+-   Cada cliente possui informações como **nome, empresa, estado, CNPJ e orçamento**.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Seleção de Produtos
 
-### `npm test`
+-   O usuário pode adicionar produtos ao orçamento.
+-   Cada produto possui **nome, preço de fábrica, descrição e segmento**.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Cálculos Automáticos
 
-### `npm run build`
+A aplicação realiza cálculos automáticos com base no cliente e nos produtos selecionados, incluindo:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+-   **Preço de Venda** (com margem de lucro).
+-   **Receita Bruta (RB)**.
+-   **Lucro Bruto (LB)**.
+-   **Margem Bruta (MB%)**.
+-   **Custo das Mercadorias Vendidas (CMV)**.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Remoção de Produtos
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+-   O usuário pode remover produtos da lista de orçamento com um botão **"Remover"**.
 
-### `npm run eject`
+## Exportação de Orçamento
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+-   O orçamento pode ser exportado em **PDF** (usando `jsPDF`) ou **CSV** (usando `papaparse` e `file-saver`).
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Interface de Usuário
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+-   A interface foi estilizada para ser intuitiva e funcional, com **tabelas** e **botões** que facilitam a navegação.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+---
 
-## Learn More
+# Tecnologias Utilizadas
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+-   **React**: Biblioteca JavaScript para construção da interface do usuário.
+-   **CSS**: Para estilização da aplicação.
+-   **jsPDF**: Para geração de PDFs.
+-   **papaparse**: Para geração de arquivos CSV.
+-   **file-saver**: Para salvar arquivos CSV no navegador.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+---
 
-### Code Splitting
+# Estrutura do Código
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Mocks de Dados
 
-### Analyzing the Bundle Size
+-   `clientes`: Array de objetos contendo informações dos clientes.
+-   `produtos`: Array de objetos contendo informações dos produtos.
+-   `taxasICMS`: Objeto com as taxas de ICMS por estado.
+-   `tabelaRepasse`: Objeto com os percentuais de repasse por estado.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Componentes Principais
 
-### Making a Progressive Web App
+-   **App**: Componente principal que gerencia o estado da aplicação e renderiza a interface.
+-   **Seleção de Cliente**: Dropdown para escolher o cliente.
+-   **Seleção de Produtos**: Dropdown para adicionar produtos ao orçamento.
+-   **Tabela de Produtos**: Exibe os produtos selecionados e permite ajustar a quantidade.
+-   **Cálculos e Resultados**: Exibe os resultados dos cálculos em tempo real.
+-   **Exportação**: Botões para gerar PDF ou CSV.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+---
 
-### Advanced Configuration
+# Próximos Passos e Melhorias
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## Validação de Dados
 
-### Deployment
+-   Adicionar validações para garantir que o usuário não insira valores inválidos, como **margens de lucro negativas** ou **quantidades zeradas**.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## Melhorias no PDF
 
-### `npm run build` fails to minify
+-   Adicionar mais informações ao **PDF**, como **nome do cliente, data do orçamento** e um **layout mais profissional**.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Histórico de Orçamentos
+
+-   Implementar uma funcionalidade para **salvar e consultar orçamentos anteriores**.
+
+## Cálculos Mais Complexos
+
+-   Adicionar cálculos de **impostos específicos** de cada estado ou **descontos personalizados**.
+
+## Interface Mais Amigável
+
+-   Melhorar a interface com **menus suspensos, gráficos de lucro** e uma **barra de progresso para o orçamento**.
+
+## Integração com Planilhas
+
+-   Permitir a **importação de dados diretamente de planilhas externas**.
